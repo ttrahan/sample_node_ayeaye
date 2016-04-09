@@ -12,20 +12,19 @@ build:
   ci:
     - echo 'CI is running'
   post_ci:
-      - docker build -t="ttrahan/$REPO:$BRANCH.$BUILD_NUMBER" .
-.e
-      # Pushing to different registries
+    - docker build -t="ttrahan/$REPO:$BRANCH.$BUILD_NUMBER" .
+    # Pushing to different registries
 
-      # # ECR
-      # - docker tag ttrahan/$REPO:$BRANCH.$BUILD_NUMBER $AMAZON_ECR_URL/$REPO:$BRANCH.$BUILD_NUMBER
-      # - docker push $AMAZON_ECR_URL/$REPO:$BRANCH.$BUILD_NUMBER
+    # # ECR
+    # - docker tag ttrahan/$REPO:$BRANCH.$BUILD_NUMBER $AMAZON_ECR_URL/$REPO:$BRANCH.$BUILD_NUMBER
+    # - docker push $AMAZON_ECR_URL/$REPO:$BRANCH.$BUILD_NUMBER
 
-      # DockerHub
-      - docker push $DOCKER_HUB_URL/$REPO:$BRANCH.$BUILD_NUMBER
+    # DockerHub
+    - docker push $DOCKER_HUB_URL/$REPO:$BRANCH.$BUILD_NUMBER
 
-      # # Quay.io
-      # - docker tag ttrahan/$REPO:$BRANCH.$BUILD_NUMBER $QUAY_URL/$REPO:$BRANCH.$BUILD_NUMBER
-      # - docker push $QUAY_URL/$REPO:$BRANCH.$BUILD_NUMBER
+    # # Quay.io
+    # - docker tag ttrahan/$REPO:$BRANCH.$BUILD_NUMBER $QUAY_URL/$REPO:$BRANCH.$BUILD_NUMBER
+    # - docker push $QUAY_URL/$REPO:$BRANCH.$BUILD_NUMBER
 
 
 integrations:
