@@ -13,15 +13,15 @@ build:
     - echo 'CI is running'
   post_ci:
       - docker build -t="ttrahan/$REPO:$BRANCH.$BUILD_NUMBER" .
-
+.e
       # Pushing to different registries
 
-      # ECR
-      - docker tag ttrahan/$REPO:$BRANCH.$BUILD_NUMBER $AMAZON_ECR_URL/$REPO:$BRANCH.$BUILD_NUMBER
-      - docker push $AMAZON_ECR_URL/$REPO:$BRANCH.$BUILD_NUMBER
+      # # ECR
+      # - docker tag ttrahan/$REPO:$BRANCH.$BUILD_NUMBER $AMAZON_ECR_URL/$REPO:$BRANCH.$BUILD_NUMBER
+      # - docker push $AMAZON_ECR_URL/$REPO:$BRANCH.$BUILD_NUMBER
 
-      # # DockerHub
-      # - docker push $DOCKER_HUB_URL/$REPO:$BRANCH.$BUILD_NUMBER
+      # DockerHub
+      - docker push $DOCKER_HUB_URL/$REPO:$BRANCH.$BUILD_NUMBER
 
       # # Quay.io
       # - docker tag ttrahan/$REPO:$BRANCH.$BUILD_NUMBER $QUAY_URL/$REPO:$BRANCH.$BUILD_NUMBER
@@ -30,18 +30,7 @@ build:
 
 integrations:
   deploy:
-    # Amazon ECR
-    - integrationName: "AWS - ttrahan"
-      type: aws
-      target: eb_docker
-      application_name: "shippable-demo-eb"
-      env_name: "eb-docker"
-      bucket_name: "elasticbeanstalk-us-east-1-288971733297"
-      region: "us-east-1"
-      image_name: "$AMAZON_ECR_URL/$REPO"
-      image_tag: "$BRANCH.$BUILD_NUMBER"
-
-    # # Docker Hub
+    # # Amazon ECR
     # - integrationName: "AWS - ttrahan"
     #   type: aws
     #   target: eb_docker
@@ -49,8 +38,19 @@ integrations:
     #   env_name: "eb-docker"
     #   bucket_name: "elasticbeanstalk-us-east-1-288971733297"
     #   region: "us-east-1"
-    #   image_name: "$DOCKER_HUB_URL/$REPO"
+    #   image_name: "$AMAZON_ECR_URL/$REPO"
     #   image_tag: "$BRANCH.$BUILD_NUMBER"
+
+    # Docker Hub
+    - integrationName: "AWS - ttrahan"
+      type: aws
+      target: eb_docker
+      application_name: "shippable-demo-eb"
+      env_name: "eb-docker"
+      bucket_name: "elasticbeanstalk-us-east-1-288971733297"
+      region: "us-east-1"
+      image_name: "$DOCKER_HUB_URL/$REPO"
+      image_tag: "$BRANCH.$BUILD_NUMBER"
 
     # # Quay.io
     # - integrationName: "AWS - ttrahan"
@@ -64,9 +64,9 @@ integrations:
     #   image_tag: "$BRANCH.$BUILD_NUMBER"
 
   hub:
-    - integrationName: "Amazon ECR - ttrahan"
-      type: ecr
-    # - integrationName: "Docker Hub"
-    #   type: docker
+    # - integrationName: "Amazon ECR - ttrahan"
+    #   type: ecr
+    - integrationName: "Docker Hub"
+      type: docker
     # - integrationName: "Quay - ttrahan"
     #   type: quay.io
