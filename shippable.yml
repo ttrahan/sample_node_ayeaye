@@ -34,10 +34,10 @@ build:
 
 integrations:
   hub:
-    # - integrationName: ttrahan-ecr
-    #   type: ecr
     - integrationName: ttrahan-dh
       type: docker
+    # - integrationName: ttrahan-ecr
+    #   type: ecr
     # - integrationName: ttrahan-quay
     #   type: quay.io
   notifications:
