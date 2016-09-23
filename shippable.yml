@@ -40,3 +40,14 @@ integrations:
       type: docker
     # - integrationName: ttrahan-quay
     #   type: quay.io
+  notifications:
+    - integrationName: trigger-org-box-pipeline
+      type: webhook
+      payload:
+        - versionName=$BRANCH.$BUILD_NUMBER
+      branches:
+        only:
+          - master
+      on_success: always
+      on_failure: never
+      on_start: never
