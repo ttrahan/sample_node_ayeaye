@@ -23,5 +23,5 @@ jobs:
     steps:
       - IN: man-sample
       - IN: trigger-test-deploy-sample
-      - IN: env-test-ecs
+      - IN: env-test-triton
       - TASK: managed

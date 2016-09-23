@@ -7,12 +7,11 @@ resources:
 # add TEST environment
 
 # add TEST env - AWS cluster
-  - name: env-test-ecs
+  - name: env-test-triton
     type: cluster
-    integration: ttrahan-aws
+    integration: ttrahan-tpc
     pointer:
-      sourceName : "demo-shippable-ecs-test"
-      region: "us-east-1"
+      region: "us-west-1"
 
 ################################
 
