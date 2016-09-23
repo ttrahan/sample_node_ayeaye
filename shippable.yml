@@ -1,9 +1,13 @@
 # Language setting
 language: node_js
 
+branches:
+  only:
+    - master
+
 env:
   global:
-    - REPO=sample-node-eb-docker
+    - REPO=sample_node_ayeaye
     - DOCKER_HUB_URL=ttrahan # {account name}
     - AMAZON_ECR_URL=288971733297.dkr.ecr.us-east-1.amazonaws.com # {AWS account ID}.dkr.ecr.us-east-1
     - QUAY_URL="quay.io/ttrahan" # quay.io/{account name}
@@ -12,7 +16,8 @@ build:
   ci:
     - echo 'CI is running'
   post_ci:
-    - docker build -t="ttrahan/$REPO:$BRANCH.$BUILD_NUMBER" .
+    - docker build -t ttrahan/$REPO:$BRANCH.$BUILD_NUMBER .
+
     # Pushing to different registries
 
     # # ECR
@@ -28,44 +33,10 @@ build:
 
 
 integrations:
-  deploy:
-    # # Amazon ECR
-    # - integrationName: "AWS - ttrahan"
-    #   type: aws
-    #   target: eb_docker
-    #   application_name: "shippable-demo-eb"
-    #   env_name: "eb-docker"
-    #   bucket_name: "elasticbeanstalk-us-east-1-288971733297"
-    #   region: "us-east-1"
-    #   image_name: "$AMAZON_ECR_URL/$REPO"
-    #   image_tag: "$BRANCH.$BUILD_NUMBER"
-
-    # Docker Hub
-    - integrationName: "AWS - ttrahan"
-      type: aws
-      target: eb_docker
-      application_name: "shippable-demo-eb"
-      env_name: "eb-docker"
-      bucket_name: "elasticbeanstalk-us-east-1-288971733297"
-      region: "us-east-1"
-      image_name: "$DOCKER_HUB_URL/$REPO"
-      image_tag: "$BRANCH.$BUILD_NUMBER"
-
-    # # Quay.io
-    # - integrationName: "AWS - ttrahan"
-    #   type: aws
-    #   target: eb_docker
-    #   application_name: "shippable-demo-eb"
-    #   env_name: "eb-docker"
-    #   bucket_name: "elasticbeanstalk-us-east-1-288971733297"
-    #   region: "us-east-1"
-    #   image_name: "$QUAY_URL/$REPO"
-    #   image_tag: "$BRANCH.$BUILD_NUMBER"
-
   hub:
-    # - integrationName: "Amazon ECR - ttrahan"
+    # - integrationName: ttrahan-ecr
     #   type: ecr
-    - integrationName: "Docker Hub"
+    - integrationName: ttrahan-dh
       type: docker
-    # - integrationName: "Quay - ttrahan"
+    # - integrationName: ttrahan-quay
     #   type: quay.io
