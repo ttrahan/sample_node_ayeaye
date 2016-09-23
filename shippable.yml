@@ -41,7 +41,7 @@ integrations:
     # - integrationName: ttrahan-quay
     #   type: quay.io
   notifications:
-    - integrationName: trigger-org-box-pipeline
+    - integrationName: trigger-img-sample
       type: webhook
       payload:
         - versionName=$BRANCH.$BUILD_NUMBER
