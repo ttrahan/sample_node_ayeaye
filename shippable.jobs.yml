@@ -1,0 +1,27 @@
+jobs:
+
+# jobs for the sample node app pipeline from CI thru TEST environment
+
+################################
+
+# add pipeline workflow
+
+# manifest gen for VISUALIZER
+  - name: man-sample
+    type: manifest
+    steps:
+      - IN: img-sample
+      - IN: img-opts-sample
+      - IN: trigger-test-deploy-sample
+      - TASK: managed
+
+# deploy visualizer to TEST
+
+# TEST deployment for VISUALIZER to Amazon ECS
+  - name: test-ecs-sample
+    type: deploy
+    steps:
+      - IN: man-sample
+      - IN: trigger-test-deploy-sample
+      - IN: env-test-ecs
+      - TASK: managed

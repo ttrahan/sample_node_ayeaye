@@ -1,0 +1,5 @@
+triggers:
+  - name: trigger-test-deploy-sample
+    type: trigger
+    version:
+      message: 'testing trigger in TEST'

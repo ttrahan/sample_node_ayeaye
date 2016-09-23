@@ -1,0 +1,39 @@
+resources:
+
+# resources for the box demo pipelines from CI thru TEST environment
+
+################################
+
+# add TEST environment
+
+# add TEST env - AWS cluster
+  - name: env-test-ecs
+    type: cluster
+    integration: ttrahan-aws
+    pointer:
+      sourceName : "demo-shippable-ecs-test"
+      region: "us-east-1"
+
+################################
+
+# Docker Image
+  - name: img-sample
+    type: image
+    integration: ttrahan-dh
+    pointer:
+      sourceName: ttrahan/sample-node-ayeaye
+      isPull: false
+    seed:
+      versionName: master.1
+
+# Docker Image Options
+  - name: img-opts-sample
+    type: dockerOptions
+    version:
+      memory: 64
+      cpuShares: 128
+      portMappings:
+        - 80:80
+      publishAllPorts : true
+
+# ################################
