@@ -20,12 +20,12 @@ build:
 
     # Pushing to different registries
 
+    # DockerHub
+    - docker push $DOCKER_HUB_URL/$REPO:$BRANCH.$BUILD_NUMBER
+
     # # ECR
     # - docker tag ttrahan/$REPO:$BRANCH.$BUILD_NUMBER $AMAZON_ECR_URL/$REPO:$BRANCH.$BUILD_NUMBER
     # - docker push $AMAZON_ECR_URL/$REPO:$BRANCH.$BUILD_NUMBER
-
-    # DockerHub
-    - docker push $DOCKER_HUB_URL/$REPO:$BRANCH.$BUILD_NUMBER
 
     # # Quay.io
     # - docker tag ttrahan/$REPO:$BRANCH.$BUILD_NUMBER $QUAY_URL/$REPO:$BRANCH.$BUILD_NUMBER

@@ -18,7 +18,7 @@ jobs:
 # deploy visualizer to TEST
 
 # TEST deployment for VISUALIZER to Amazon ECS
-  - name: test-ecs-sample
+  - name: test-triton-sample
     type: deploy
     steps:
       - IN: man-sample
