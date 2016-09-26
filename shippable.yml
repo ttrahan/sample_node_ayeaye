@@ -47,7 +47,7 @@ integrations:
         - versionName=$BRANCH.$BUILD_NUMBER
       branches:
         only:
-          - master
+          - triton
       on_success: always
       on_failure: never
       on_start: never
