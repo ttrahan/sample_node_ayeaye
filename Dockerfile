@@ -1,7 +1,6 @@
-FROM readytalk/nodejs
+FROM ttrahan/sample_node_ayeaye:preinstalled
 
 WORKDIR /app
 ADD . /app
-RUN npm install
 EXPOSE 80
 ENTRYPOINT ["/nodejs/bin/npm", "start"]
