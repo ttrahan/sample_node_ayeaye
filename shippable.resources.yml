@@ -18,9 +18,9 @@ resources:
 # Docker Image
   - name: img-sample
     type: image
-    integration: ttrahan-dh
+    integration: ttrahan-quay-robot
     pointer:
-      sourceName: ttrahan/sample_node_ayeaye
+      sourceName: quay.io/ttrahan/sample_node_ayeaye
       isPull: false
     seed:
       versionName: master.1
