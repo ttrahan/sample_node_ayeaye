@@ -34,12 +34,12 @@ build:
 
 integrations:
   hub:
-    - integrationName: ttrahan-dh
-      type: docker
+    # - integrationName: ttrahan-dh
+    #   type: docker
     # - integrationName: ttrahan-ecr
     #   type: ecr
-    # - integrationName: ttrahan-quay
-    #   type: quay.io
+    - integrationName: ttrahan-quay-robot
+      type: quay.io
   notifications:
     - integrationName: trigger-img-sample
       type: webhook
