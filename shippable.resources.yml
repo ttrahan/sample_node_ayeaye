@@ -20,10 +20,10 @@ resources:
     type: image
     integration: ttrahan-quay-robot
     pointer:
-      sourceName: quay.io/ttrahan/sample_node_ayeaye
+      sourceName: quay.io/ttrahan_org/sample_node_ayeaye
       isPull: false
     seed:
-      versionName: master.1
+      versionName: triton.25
 
 # Docker Image Options
   - name: img-opts-sample
