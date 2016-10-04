@@ -14,6 +14,13 @@ resources:
       sourceName : "demo-shippable-ecs-test"
       region: "us-east-1"
 
+# add TEST env - AWS cluster
+  - name: demo-alb          #required
+    type: loadBalancer      #required
+    pointer:
+      sourceName: "arn:aws:elasticloadbalancing:us-east-1:288971733297:loadbalancer/app/demoALB/34b31240f3f68d63"
+      method: application
+
 ################################
 
 # Docker Image

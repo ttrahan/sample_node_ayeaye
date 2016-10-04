@@ -24,4 +24,5 @@ jobs:
       - IN: man-sample
       - IN: trigger-test-deploy-sample
       - IN: env-test-ecs
+      - IN: demo-alb
       - TASK: managed
