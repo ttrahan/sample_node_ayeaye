@@ -28,7 +28,7 @@ resources:
     type: image
     integration: ttrahan-dh
     pointer:
-      sourceName: ttrahan/sample-node-ayeaye
+      sourceName: ttrahan/sample_node_ayeaye
       isPull: false
     seed:
       versionName: master.1
