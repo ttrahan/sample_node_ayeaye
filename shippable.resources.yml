@@ -15,10 +15,17 @@ resources:
       region: "us-east-1"
 
 # add TEST env - AWS cluster
-  - name: demo-alb          #required
+  - name: demo-alb-test     #required
     type: loadBalancer      #required
     pointer:
-      sourceName: "arn:aws:elasticloadbalancing:us-east-1:288971733297:loadbalancer/app/demoALB/34b31240f3f68d63"
+      sourceName: "arn:aws:elasticloadbalancing:us-east-1:288971733297:targetgroup/demoWeb-Test/403cadeb30a7b1b1"
+      method: application
+
+# add TEST env - AWS cluster
+  - name: demo-alb-prod     #required
+    type: loadBalancer      #required
+    pointer:
+      sourceName: "arn:aws:elasticloadbalancing:us-east-1:288971733297:targetgroup/demoWeb/29435cb0f31ac400"
       method: application
 
 ################################
@@ -43,7 +50,7 @@ resources:
         - 0:8080
       publishAllPorts : true
 
-# env vars for VISUALIZER
+# env vars for Test
   - name: params-test
     type: params
     version:
@@ -56,7 +63,7 @@ resources:
 #     type: params
 #     version:
 #       params:
-#         - ENVIRONMENT: "prod"
+#         - ENVIRONMENT: "PROD"
 #         - PORT: 80
 
 
