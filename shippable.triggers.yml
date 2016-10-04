@@ -2,10 +2,10 @@ triggers:
   - name: trigger-test-deploy-sample
     type: trigger
     version:
-      message: 'testing trigger in TEST'
+      message: 'trigger for TEST'
 
 triggers:
   - name: trigger-prod-deploy-sample
     type: trigger
     version:
-      message: 'testing trigger in PROD'
+      message: 'trigger for PROD'
