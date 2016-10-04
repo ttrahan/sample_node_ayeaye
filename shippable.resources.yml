@@ -6,7 +6,7 @@ resources:
 
 # add TEST environment
 
-# add TEST env - AWS cluster
+# add env - AWS cluster
   - name: env-test-ecs
     type: cluster
     integration: ttrahan-aws
@@ -14,14 +14,14 @@ resources:
       sourceName : "demo-shippable-ecs-test"
       region: "us-east-1"
 
-# add TEST env - AWS cluster
+# add AWS ALB target group
   - name: demo-alb-test     #required
     type: loadBalancer      #required
     pointer:
       sourceName: "arn:aws:elasticloadbalancing:us-east-1:288971733297:targetgroup/demoWeb-Test/403cadeb30a7b1b1"
       method: application
 
-# add TEST env - AWS cluster
+# add AWS ALB target group
   - name: demo-alb-prod     #required
     type: loadBalancer      #required
     pointer:
@@ -58,13 +58,13 @@ resources:
         ENVIRONMENT: "TEST"
         PORT: 8080
 
-# # env vars for VISUALIZER
-#   - name: params-prod
-#     type: params
-#     version:
-#       params:
-#         - ENVIRONMENT: "PROD"
-#         - PORT: 80
+# env vars for VISUALIZER
+  - name: params-prod
+    type: params
+    version:
+      params:
+        - ENVIRONMENT: "PROD"
+        - PORT: 80
 
 
 # ################################
