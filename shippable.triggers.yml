@@ -4,7 +4,6 @@ triggers:
     version:
       message: 'trigger for TEST'
 
-triggers:
   - name: trigger-prod-deploy-sample
     type: trigger
     version:
