@@ -26,4 +26,8 @@ jobs:
       - IN: trigger-test-deploy-sample
       - IN: env-test-ecs
       - IN: demo-alb
+        applyTo:
+          - manifest: man-sample         #required for load balancer
+            image: img-sample                    #required for load balancer
+            port: 8080                    #required for load balancer
       - TASK: managed
