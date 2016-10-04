@@ -43,4 +43,21 @@ resources:
         - 80:80
       publishAllPorts : true
 
+# env vars for VISUALIZER
+  - name: params-test
+    type: params
+    version:
+      params:
+        - ENVIRONMENT: "test"
+        - PORT: 8080
+
+# # env vars for VISUALIZER
+#   - name: params-prod
+#     type: params
+#     version:
+#       params:
+#         - ENVIRONMENT: "prod"
+#         - PORT: 80
+
+
 # ################################
