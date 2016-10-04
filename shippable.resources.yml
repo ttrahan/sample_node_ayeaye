@@ -48,7 +48,7 @@ resources:
     type: params
     version:
       params:
-        - ENVIRONMENT: "test"
+        - ENVIRONMENT: "TEST"
         - PORT: 8080
 
 # # env vars for VISUALIZER
