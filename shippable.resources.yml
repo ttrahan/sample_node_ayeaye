@@ -58,13 +58,13 @@ resources:
         ENVIRONMENT: "TEST"
         PORT: 8080
 
-# env vars for VISUALIZER
+# env vars for Prod
   - name: params-prod
     type: params
     version:
       params:
-        - ENVIRONMENT: "PROD"
-        - PORT: 80
+        ENVIRONMENT: "PROD"
+        PORT: 80
 
 
 # ################################
