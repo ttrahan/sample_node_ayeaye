@@ -13,10 +13,11 @@ env:
 build:
   ci:
     - echo 'CI is running'
-  post_ci:
-    - docker build -t $GOOGLE_GCR_URL/$REPO:$BRANCH.$BUILD_NUMBER .
-    # Push to GCR.io
-    - docker push $GOOGLE_GCR_URL/$REPO:$BRANCH.$BUILD_NUMBER
+# # Leave this disabled if already fired from another branch, e.g. master
+  # post_ci:
+  #   - docker build -t $GOOGLE_GCR_URL/$REPO:$BRANCH.$BUILD_NUMBER .
+  #   # Push to GCR.io
+  #   - docker push $GOOGLE_GCR_URL/$REPO:$BRANCH.$BUILD_NUMBER
 
 
 integrations:
@@ -24,14 +25,15 @@ integrations:
     - integrationName: ttrahan-gcr
       type: gcr
 
-  notifications:
-    - integrationName: trigger-img-sample-gcr
-      type: webhook
-      payload:
-        - versionName=$BRANCH.$BUILD_NUMBER
-      branches:
-        only:
-          - gke
-      on_success: always
-      on_failure: never
-      on_start: never
+# # Leave this disabled if already fired from another branch, e.g. master
+#   notifications:
+#     - integrationName: trigger-img-sample-gcr
+#       type: webhook
+#       payload:
+#         - versionName=$BRANCH.$BUILD_NUMBER
+#       branches:
+#         only:
+#           - gke
+#       on_success: always
+#       on_failure: never
+#       on_start: never
