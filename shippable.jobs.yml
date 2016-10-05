@@ -20,10 +20,10 @@ jobs:
     type: deploy
     steps:
       - IN: man-sample
-      - IN: params-test
-      - IN: trigger-test-deploy-sample
+      - IN: params-sample-test
+      - IN: trigger-sample-test
       - IN: env-test-ecs
-      - IN: demo-alb-test
+      - IN: alb-demo-test
         applyTo:
           - manifest: man-sample          #required for load balancer
             image: img-sample             #required for load balancer
@@ -35,10 +35,11 @@ jobs:
     type: deploy
     steps:
       - IN: test-ecs-sample
-      - IN: params-prod
-      - IN: trigger-prod-deploy-sample
+      - IN: params-sample-prod
+      - IN: replicas-sample-prod
+      - IN: alb-demo-prod
       - IN: env-test-ecs
-      - IN: demo-alb-prod
+      - IN: trigger-sample-prod
         applyTo:
           - manifest: man-sample        #required for load balancer
             image: img-sample           #required for load balancer

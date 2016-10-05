@@ -4,7 +4,7 @@ resources:
 
 ################################
 
-# add TEST environment
+# add infrastructure resources
 
 # add env - AWS cluster
   - name: env-test-ecs
@@ -14,15 +14,15 @@ resources:
       sourceName : "demo-shippable-ecs-test"
       region: "us-east-1"
 
-# add AWS ALB target group
-  - name: demo-alb-test     #required
+# add AWS ALB target group for TEST
+  - name: alb-demo-test     #required
     type: loadBalancer      #required
     pointer:
       sourceName: "arn:aws:elasticloadbalancing:us-east-1:288971733297:targetgroup/demoWeb-Test/403cadeb30a7b1b1"
       method: application
 
-# add AWS ALB target group
-  - name: demo-alb-prod     #required
+# add AWS ALB target group for PROD
+  - name: alb-demo-prod     #required
     type: loadBalancer      #required
     pointer:
       sourceName: "arn:aws:elasticloadbalancing:us-east-1:288971733297:targetgroup/demoWeb/29435cb0f31ac400"
@@ -40,6 +40,10 @@ resources:
     seed:
       versionName: master.1
 
+################################
+
+# TEST resources
+
 # Docker Image Options
   - name: img-opts-sample
     type: dockerOptions
@@ -51,20 +55,27 @@ resources:
       publishAllPorts : true
 
 # env vars for Test
-  - name: params-test
+  - name: params-sample-test
     type: params
     version:
       params:
         ENVIRONMENT: "TEST"
         PORT: 8080
 
+# PROD resources
+
 # env vars for Prod
-  - name: params-prod
+  - name: params-sample-prod
     type: params
     version:
       params:
         ENVIRONMENT: "PROD"
         PORT: 80
 
+# PROD replica controller
+  - name: replicas-sample-prod
+    type: replicas
+    version:
+      count: 2
 
 # ################################
