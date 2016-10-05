@@ -1,15 +1,15 @@
 triggers:
-  - name: trigger-sample-test
+  - name: trigger-sample-test-gke
     type: trigger
     version:
       message: 'trigger to deploy to TEST'
 
-  - name: trigger-sample-prod
+  - name: trigger-sample-prod-gke
     type: trigger
     version:
       message: 'trigger to deploy to PROD'
 
-  - name: trigger-release-prod
+  - name: trigger-release-prod-gke
     type: trigger
     version:
       message: 'trigger to create release'

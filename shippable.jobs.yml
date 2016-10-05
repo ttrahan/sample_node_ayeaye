@@ -7,44 +7,44 @@ jobs:
 # add pipeline workflow
 
 # manifest gen for VISUALIZER
-  - name: man-sample
+  - name: man-sample-gke
     type: manifest
     steps:
-      - IN: img-sample
-      - IN: img-opts-sample-test
+      - IN: img-sample-gcr
+      - IN: img-opts-sample-test-gke
       - TASK: managed
 
 # TEST deployment to Amazon ECS
-  - name: test-gke-sample
+  - name: deploy-test-sample-gke
     type: deploy
     steps:
-      - IN: man-sample
-      - IN: params-sample-test
-      - IN: trigger-sample-test
+      - IN: man-sample-gke
+      - IN: params-sample-test-gke
+      - IN: trigger-sample-test-gke
       - IN: env-gke
       - TASK: managed
 
 # Create release for PROD
-  - name: release-sample
+  - name: release-sample-gke
     type: release
     steps:
-      - IN: ver-sample
+      - IN: ver-sample-gke
         switch: off
-      - IN: test-gke-sample
+      - IN: deploy-test-sample-gke
         switch: off
-      - IN: trigger-release-prod
+      - IN: trigger-release-prod-gke
       - TASK:   managed
         bump: patch
 
 # PROD deployment to Amazon ECS
-  - name: prod-gke-sample
+  - name: deploy-prod-sample-gke
     type: deploy
     steps:
-      - IN: release-sample
+      - IN: release-sample-gke
         switch: off
-      - IN: img-opts-sample-prod
-      - IN: params-sample-prod
-      - IN: replicas-sample-prod
-      - IN: trigger-sample-prod
+      - IN: img-opts-sample-prod-gke
+      - IN: params-sample-prod-gke
+      - IN: replicas-sample-prod-gke
+      - IN: trigger-sample-prod-gke
       - IN: env-gke
       - TASK: managed

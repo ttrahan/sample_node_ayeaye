@@ -31,7 +31,7 @@ resources:
 # TEST resources
 
 # Docker Image Options
-  - name: img-opts-sample-test
+  - name: img-opts-sample-test-gke
     type: dockerOptions
     version:
       memory: 64
@@ -44,7 +44,7 @@ resources:
         app: sample_node_ayeaye
 
 # env vars for Test
-  - name: params-sample-test
+  - name: params-sample-test-gke
     type: params
     version:
       params:
@@ -54,7 +54,7 @@ resources:
 ################################
 
 # set service version seed
-  - name: ver-sample
+  - name: ver-sample-gke
     type: version
     seed:
       versionName: "1.0.0"
@@ -64,7 +64,7 @@ resources:
 # PROD resources
 
 # Docker Image Options
-  - name: img-opts-sample-prod
+  - name: img-opts-sample-prod-gke
     type: dockerOptions
     version:
       memory: 128
@@ -73,7 +73,7 @@ resources:
         env: prod
 
 # env vars for Prod
-  - name: params-sample-prod
+  - name: params-sample-prod-gke
     type: params
     version:
       params:
@@ -81,7 +81,7 @@ resources:
         PORT: 80
 
 # PROD replica controller
-  - name: replicas-sample-prod
+  - name: replicas-sample-prod-gke
     type: replicas
     version:
       count: 2
