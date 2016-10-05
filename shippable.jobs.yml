@@ -12,7 +12,6 @@ jobs:
     steps:
       - IN: img-sample
       - IN: img-opts-sample
-      - IN: trigger-test-deploy-sample
       - TASK: managed
 
 # TEST deployment to Amazon ECS
