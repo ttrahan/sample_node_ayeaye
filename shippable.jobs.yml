@@ -15,7 +15,7 @@ jobs:
       - TASK: managed
 
 # TEST deployment to Amazon ECS
-  - name: test-ecs-sample
+  - name: ecs-deploy-test-sample
     type: deploy
     steps:
       - IN: man-sample
@@ -42,7 +42,7 @@ jobs:
         bump: patch
 
 # PROD deployment to Amazon ECS
-  - name: prod-ecs-sample
+  - name: ecs-deploy-prod-sample
     type: deploy
     steps:
       - IN: release-sample
