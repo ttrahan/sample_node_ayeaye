@@ -45,7 +45,7 @@ jobs:
   - name: prod-ecs-sample
     type: deploy
     steps:
-      - IN: test-ecs-sample
+      - IN: release-sample
         switch: off
       - IN: params-sample-prod
       - IN: replicas-sample-prod
