@@ -11,22 +11,17 @@ jobs:
     type: manifest
     steps:
       - IN: img-sample
-      - IN: img-opts-sample
+      - IN: img-opts-sample-test
       - TASK: managed
 
 # TEST deployment to Amazon ECS
-  - name: test-ecs-sample
+  - name: test-gke-sample
     type: deploy
     steps:
       - IN: man-sample
       - IN: params-sample-test
       - IN: trigger-sample-test
-      - IN: env-test-ecs
-      - IN: alb-demo-test
-        applyTo:
-          - manifest: man-sample
-            image: img-sample
-            port: 8080
+      - IN: env-gke
       - TASK: managed
 
 # Create release for PROD
@@ -35,25 +30,21 @@ jobs:
     steps:
       - IN: ver-sample
         switch: off
-      - IN: test-ecs-sample
+      - IN: test-gke-sample
         switch: off
       - IN: trigger-release-prod
       - TASK:   managed
         bump: patch
 
 # PROD deployment to Amazon ECS
-  - name: prod-ecs-sample
+  - name: prod-gke-sample
     type: deploy
     steps:
       - IN: release-sample
         switch: off
+      - IN: img-opts-sample-prod
       - IN: params-sample-prod
       - IN: replicas-sample-prod
       - IN: trigger-sample-prod
-      - IN: alb-demo-prod
-        applyTo:
-          - manifest: man-sample
-            image: img-sample
-            port: 80
-      - IN: env-test-ecs
+      - IN: env-gke
       - TASK: managed

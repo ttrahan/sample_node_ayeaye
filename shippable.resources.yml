@@ -6,53 +6,42 @@ resources:
 
 # add infrastructure resources
 
-# add env - AWS cluster
-  - name: env-test-ecs
+# add env - GKE cluster TEST
+  - name: env-gke
     type: cluster
-    integration: ttrahan-aws
+    integration: ttrahan-gke
     pointer:
-      sourceName : "demo-shippable-ecs-test"
-      region: "us-east-1"
-
-# add AWS ALB target group for TEST
-  - name: alb-demo-test     #required
-    type: loadBalancer      #required
-    pointer:
-      sourceName: "arn:aws:elasticloadbalancing:us-east-1:288971733297:targetgroup/demoWeb-Test/403cadeb30a7b1b1"
-      method: application
-
-# add AWS ALB target group for PROD
-  - name: alb-demo-prod     #required
-    type: loadBalancer      #required
-    pointer:
-      sourceName: "arn:aws:elasticloadbalancing:us-east-1:288971733297:targetgroup/demoWeb/29435cb0f31ac400"
-      method: application
+      sourceName : "demo-shippable-gke"
+      region: "us-east1-b"
 
 ################################
 
 # Docker Image
-  - name: img-sample
+  - name: img-sample-gcr
     type: image
-    integration: ttrahan-dh
+    integration: ttrahan-gcr
     pointer:
-      sourceName: ttrahan/sample_node_ayeaye
+      sourceName: gcr.io/shippable-gke/sample_node_ayeaye
       isPull: false
     seed:
-      versionName: master.1
+      versionName: gke.1
 
 ################################
 
 # TEST resources
 
 # Docker Image Options
-  - name: img-opts-sample
+  - name: img-opts-sample-test
     type: dockerOptions
     version:
       memory: 64
       cpuShares: 128
       portMappings:
-        - 0:8080
+        - 8080:8080
       publishAllPorts : true
+      labels:
+        env: test
+        app: sample_node_ayeaye
 
 # env vars for Test
   - name: params-sample-test
@@ -73,6 +62,15 @@ resources:
 ################################
 
 # PROD resources
+
+# Docker Image Options
+  - name: img-opts-sample-prod
+    type: dockerOptions
+    version:
+      memory: 128
+      cpuShares: 256
+      labels:
+        env: prod
 
 # env vars for Prod
   - name: params-sample-prod
