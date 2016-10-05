@@ -62,6 +62,8 @@ resources:
         ENVIRONMENT: "TEST"
         PORT: 8080
 
+################################
+
 # PROD resources
 
 # env vars for Prod
