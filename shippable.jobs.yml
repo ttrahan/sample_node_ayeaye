@@ -35,7 +35,7 @@ jobs:
     steps:
       - IN: ver-sample
         switch: off
-      - IN: test-ecs-sample
+      - IN: ecs-deploy-test-sample
         switch: off
       - IN: trigger-release-prod
       - TASK:   managed
