@@ -15,7 +15,7 @@ jobs:
       - TASK: managed
 
 # TEST deployment to Amazon ECS
-  - name: deploy-test-sample-gke
+  - name: gke-deploy-test-sample
     type: deploy
     steps:
       - IN: man-sample-gke
@@ -30,14 +30,14 @@ jobs:
     steps:
       - IN: ver-sample-gke
         switch: off
-      - IN: deploy-test-sample-gke
+      - IN: gke-deploy-test-sample
         switch: off
       - IN: trigger-release-prod-gke
       - TASK:   managed
         bump: patch
 
 # PROD deployment to Amazon ECS
-  - name: deploy-prod-sample-gke
+  - name: gke-deploy-prod-sample
     type: deploy
     steps:
       - IN: release-sample-gke
