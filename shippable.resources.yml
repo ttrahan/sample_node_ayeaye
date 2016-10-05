@@ -67,8 +67,8 @@ resources:
   - name: img-opts-sample-prod-gke
     type: dockerOptions
     version:
-      memory: 128
-      cpuShares: 256
+      memory: 64
+      cpuShares: 128
       labels:
         env: prod
 
