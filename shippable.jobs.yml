@@ -35,6 +35,7 @@ jobs:
     type: deploy
     steps:
       - IN: test-ecs-sample
+        switch: off
       - IN: params-sample-prod
       - IN: replicas-sample-prod
       - IN: alb-demo-prod
