@@ -64,6 +64,14 @@ resources:
 
 ################################
 
+# set service version seed
+  - name: ver-sample
+    type: version
+    seed:
+      versionName: "1.0.0"
+
+################################
+
 # PROD resources
 
 # env vars for Prod

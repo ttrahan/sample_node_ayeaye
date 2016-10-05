@@ -2,9 +2,14 @@ triggers:
   - name: trigger-sample-test
     type: trigger
     version:
-      message: 'trigger for TEST'
+      message: 'trigger to deploy to TEST'
 
   - name: trigger-sample-prod
     type: trigger
     version:
-      message: 'trigger for PROD'
+      message: 'trigger to deploy to PROD'
+
+  - name: trigger-release-prod
+    type: trigger
+    version:
+      message: 'trigger to create release'

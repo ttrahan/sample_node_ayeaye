@@ -24,10 +24,22 @@ jobs:
       - IN: env-test-ecs
       - IN: alb-demo-test
         applyTo:
-          - manifest: man-sample          #required for load balancer
-            image: img-sample             #required for load balancer
-            port: 8080                    #required for load balancer
+          - manifest: man-sample
+            image: img-sample
+            port: 8080
       - TASK: managed
+
+# Create release for PROD
+  - name: release-sample
+    type: release
+    steps:
+      - IN: ver-sample
+        switch: off
+      - IN: test-ecs-sample
+        switch: off
+      - IN: trigger-release-prod
+      - TASK:   managed
+        bump: patch
 
 # PROD deployment to Amazon ECS
   - name: prod-ecs-sample
@@ -37,11 +49,11 @@ jobs:
         switch: off
       - IN: params-sample-prod
       - IN: replicas-sample-prod
-      - IN: alb-demo-prod
-      - IN: env-test-ecs
       - IN: trigger-sample-prod
+      - IN: alb-demo-prod
         applyTo:
-          - manifest: man-sample        #required for load balancer
-            image: img-sample           #required for load balancer
-            port: 80                    #required for load balancer
+          - manifest: man-sample
+            image: img-sample
+            port: 80
+      - IN: env-test-ecs
       - TASK: managed
