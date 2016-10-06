@@ -48,7 +48,7 @@ integrations:
     #   type: quay.io
     - integrationName: ttrahan-gcr
       type: gcr
-      
+
   notifications:
     - integrationName: trigger-img-sample
       type: webhook
@@ -60,13 +60,13 @@ integrations:
       on_success: always
       on_failure: never
       on_start: never
-    - integrationName: trigger-img-sample-gcr
-      type: webhook
-      payload:
-        - versionName=$BRANCH.$BUILD_NUMBER
-      branches:
-        only:
-          - master
-      on_success: always
-      on_failure: never
-      on_start: never
+    # - integrationName: trigger-img-sample-gcr
+    #   type: webhook
+    #   payload:
+    #     - versionName=$BRANCH.$BUILD_NUMBER
+    #   branches:
+    #     only:
+    #       - master
+    #   on_success: always
+    #   on_failure: never
+    #   on_start: never
