@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: ns-gke-deploy-test-sample-85c2ea6f-42b7-421c-a31f-7653c9a4687f # insert your namespace here
+  name: node-sample-ayeaye # name the service, unique to namespace
+  labels:
+    name: test #any labels you'd like for your service
+spec:
+  type: LoadBalancer # this will expose your service externally by creating a forwarding rule
+  ports:
+  - port: 8080 # the port that this service should serve on
+  selector:
+    name: gke-deploy-test-sample
+
+# to create an externally accessible load balancer for your GKE deployments,
+# update the above script with the your values and either upload the yaml via
+# the kubectl UI running locally or execute the following command from the CLI:
+# $ kubectl create -f kubeService-node-sample-test.yaml
