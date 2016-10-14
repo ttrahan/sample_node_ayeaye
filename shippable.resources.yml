@@ -64,28 +64,28 @@ resources:
 
 ################################
 
-# # set service version seed
-#   - name: ver-sample
-#     type: version
-#     seed:
-#       versionName: "1.0.0"
+# set service version seed
+  - name: ver-sample
+    type: version
+    seed:
+      versionName: "1.0.0"
 
 ################################
 
-# # PROD resources
-#
-# # env vars for Prod
-#   - name: params-sample-prod
-#     type: params
-#     version:
-#       params:
-#         ENVIRONMENT: "PROD"
-#         PORT: 80
-#
-# # PROD replica controller
-#   - name: replicas-sample-prod
-#     type: replicas
-#     version:
-#       count: 2
+# PROD resources
+
+# env vars for Prod
+  - name: params-sample-prod
+    type: params
+    version:
+      params:
+        ENVIRONMENT: "PROD"
+        PORT: 80
+
+# PROD replica controller
+  - name: replicas-sample-prod
+    type: replicas
+    version:
+      count: 2
 
 # ################################
