@@ -16,6 +16,15 @@ jobs:
 
 # TEST deployment to Amazon ECS
   - name: ecs-deploy-test-sample
+    type: runSh
+    steps:
+      - IN: man-sample
+      - IN: params-sample-test
+      - TASK:
+        - scripts: curl (nouvola api)
+
+# TEST deployment to Amazon ECS
+  - name: ecs-deploy-test-sample
     type: deploy
     steps:
       - IN: man-sample
