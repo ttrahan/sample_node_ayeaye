@@ -51,7 +51,7 @@ resources:
       memory: 64
       cpuShares: 128
       portMappings:
-        - 0:8080
+        - 0:80
       publishAllPorts : true
 
 # env vars for Test
