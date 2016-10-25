@@ -60,7 +60,7 @@ resources:
     version:
       params:
         ENVIRONMENT: "TEST"
-        PORT: 8080
+        PORT: 80
 
 ################################
 
