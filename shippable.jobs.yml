@@ -26,7 +26,7 @@ jobs:
         applyTo:
           - manifest: man-sample
             image: img-sample
-            port: 8080
+            port: 80
       - TASK: managed
 
 # Create release for PROD
