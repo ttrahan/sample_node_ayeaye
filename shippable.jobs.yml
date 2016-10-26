@@ -64,8 +64,8 @@ jobs:
   - name: man-sample-triton
     type: manifest
     steps:
-      - IN: img-sample-triton
-      - IN: img-opts-sample
+      - IN: img-sample
+      - IN: img-opts-sample-triton
       - TASK: managed
 
 # TEST deployment for VISUALIZER to Amazon ECS
