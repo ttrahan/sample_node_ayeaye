@@ -73,7 +73,7 @@ jobs:
     type: deploy
     steps:
       - IN: man-sample-triton
-      - IN: trigger-test-deploy-sample
+      - IN: trigger-sample-test
       - IN: env-test-triton
       - TASK: managed
 #
