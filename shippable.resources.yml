@@ -28,6 +28,13 @@ resources:
       sourceName: "arn:aws:elasticloadbalancing:us-east-1:288971733297:targetgroup/demoWeb/29435cb0f31ac400"
       method: application
 
+# # add TEST env - AWS cluster
+#   - name: env-test-triton
+#     type: cluster
+#     integration: ttrahan-tpc
+#     pointer:
+#       region: "us-west-1"
+
 ################################
 
 # Docker Image
@@ -61,6 +68,16 @@ resources:
       params:
         ENVIRONMENT: "TEST"
         PORT: 80
+
+# # Docker Image Options
+#   - name: img-opts-sample-triton
+#     type: dockerOptions
+#     version:
+#       memory: 64
+#       cpuShares: 128
+#       portMappings:
+#         - 80:80
+#       publishAllPorts : true
 
 ################################
 
