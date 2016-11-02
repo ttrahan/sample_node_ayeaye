@@ -82,27 +82,8 @@ resources:
         ENVIRONMENT: "PROD"
         PORT: 80
 
-# # PROD replica controller
-#   - name: replicas-sample-prod
-#     type: replicas
-#     version:
-#       count: 2
-
-# ################################
-
-# add TEST env - Triton cluster
-  - name: env-test-triton
-    type: cluster
-    integration: ttrahan-tpc
-    pointer:
-      region: "us-west-1"
-
-# # Docker Image Options
-#   - name: img-opts-sample-triton
-#     type: dockerOptions
-#     version:
-#       memory: 64
-#       cpuShares: 128
-#       portMappings:
-#         - 80:80
-#       publishAllPorts : true
+# PROD replica controller
+  - name: replicas-sample-prod
+    type: replicas
+    version:
+      count: 2
