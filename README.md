@@ -1,35 +1,28 @@
 [![Run Status](https://api.shippable.com/projects/56e93b119d043da07bdda580/badge?branch=master)](https://app.shippable.com/projects/56e93b119d043da07bdda580)
 
-A simple Node.js application with tests. Different branches demonstrate different use cases, as follows:
+A simple Node.js application with tests. This branch demonstrates a git-flow
+CI/CD use case as [diagrammed here](./public/resources/docs/git-flow-cicd-example.pdf)
 
-**master:**
-This branch changes frequently for demos, as needed, but typically shows:
-  * CI run that builds and pushes a Docker image to a Docker registry (Docker Hub, Quay.io, Amazon ECR, Google Container Registry, etc.)
-  * Auto-generate an updated deployment manifest
-  * Auto-deploy to a Test environment (e.g. Amazon ECS, Docker Datacenter, Triton, etc.)
-  * Manual trigger to create a release candidate for Prod environment
-  * Manual deploy to Prod environment
-
-**amazon-ecs:**
-* CI run that builds and pushes a Docker image to Amazon EC/2 Container Registry (ECR)
-* Auto-generate an updated deployment manifest
-* Auto-deploy to a Test environment in Amazon EC/2 Container Service (ECS)   
-  * Deployed containers will automatically register listeners with AWS Application Load Balancer
-* Manual trigger to create a release candidate for Prod environment
-* Manual deploy to Prod environment in Amazon ECS   
-  * Deployed containers will automatically register listeners with AWS Application Load Balancer
-
-**gke:**
-* CI run that builds and pushes a Docker image to Google Container Registry
-* Auto-generate an updated deployment manifest
-* Auto-deploy to a Test environment in Google Container Engine (GKE)
-* Manual trigger to create a release candidate for Prod environment
-* Manual deploy to Prod environment in GKE
-
-**triton:**  
-* CI run that builds and pushes a Docker image to Docker Hub
-* Note that the app uses the Container Pilot pattern with Consul for Service Discovery
-* Auto-generate an updated deployment manifest
-* Auto-deploy to a Test environment in Joyent Triton
-* Manual trigger to create a release candidate for Prod environment
-* Manual deploy to Prod environment in Joyent Triton
+**git-flow:**
+* Developer creates new feature branch following naming convention 'feature-.\*'
+* Developer commits code changes to feature branch on remote origin
+* Trigger CI run that builds Docker image from feature branch and runs unit, API, and
+E2E tests against it
+  * Notify developer on success or failure
+* Create pull request to merge feature branch with 'develop' branch
+* Trigger CI run that builds Docker image from develop branch and runs unit, API, and
+E2E tests against it
+  * Upon success, notify developer -> developer deletes feature branch
+  * Upon failure, notify developer -> developer resolves issues and repeats process
+  beginning
+* Developer creates Git Release and pushes to remote origin
+* Trigger CI run to build Docker image for release with semantic version tag (x.x.x)
+and push to docker registry
+* Auto-generate a deployment manifest with newest release information
+* Auto-deploy to Test environment
+* Trigger automated functional tests against Test environment
+* Conduct smoke/acceptance tests
+  * Upon success, notify developer -> developer creates PR to master branch with tags
+  * Upon failure, notify devloper -> developer resolves issues and restarts at beginning
+  of flow
+* Manually trigger deploy release v1.2.3 to Prod environment
