@@ -68,7 +68,7 @@ jobs:
 #       - IN: img-opts-sample-triton
 #       - TASK: managed
 #
-# # TEST deployment for VISUALIZER to Amazon ECS
+# # TEST deployment for VISUALIZER to Joyent Triton
 #   - name: test-triton-sample
 #     type: deploy
 #     steps:
