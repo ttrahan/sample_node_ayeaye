@@ -11,6 +11,7 @@ jobs:
     type: manifest
     steps:
       - IN: img-sample
+        versionName: master.79
       - IN: img-opts-sample
       - TASK: managed
 
