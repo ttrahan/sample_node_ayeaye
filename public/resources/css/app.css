@@ -20,7 +20,8 @@ body {
   background-image: -webkit-gradient(linear,left top,left bottom,from(#09AE5C),to(#09AE5C));
   background-image: -webkit-linear-gradient(top,#09AE5C 0,#09AE5C 100%);
   background-image: -o-linear-gradient(top,#09AE5C 0,#09AE5C 100%);
-  background-image: linear-gradient(to bottom,#09AE5C 0,#2E608A 100%);
+  background-image: linear-gradient(to bottom,#09AE5C 0,#09AE5C 100%);
+  /*background-image: linear-gradient(to bottom,#09AE5C 0,#2E608A 100%);*/
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#09AE5C', endColorstr='#09AE5C', GradientType=0);
   background-repeat: repeat-x;
 }
