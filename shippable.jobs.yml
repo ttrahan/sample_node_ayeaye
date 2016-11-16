@@ -30,17 +30,17 @@ jobs:
             port: 80
       - TASK: managed
 
-# Create release for PROD
-  - name: release-sample
-    type: release
-    steps:
-      - IN: ver-sample
-        switch: off
-      - IN: ecs-deploy-test-sample
-        switch: off
-      - IN: trigger-release-prod
-      - TASK:   managed
-        bump: patch
+# # Create release for PROD
+#   - name: release-sample
+#     type: release
+#     steps:
+#       - IN: ver-sample
+#         switch: off
+#       - IN: ecs-deploy-test-sample
+#         switch: off
+#       - IN: trigger-release-prod
+#       - TASK:   managed
+#         bump: patch
 
 # # PROD deployment to Amazon ECS
 #   - name: ecs-deploy-prod-sample
