@@ -47,7 +47,7 @@ jobs:
     steps:
       - IN: release-sample
         switch: off
-      - IN: man-sample
+      # - IN: man-sample
       - IN: params-sample-prod
       - IN: replicas-sample-prod
       - IN: trigger-sample-prod
