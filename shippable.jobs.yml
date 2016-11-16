@@ -42,23 +42,23 @@ jobs:
       - TASK:   managed
         bump: patch
 
-# PROD deployment to Amazon ECS
-  - name: ecs-deploy-prod-sample
-    type: deploy
-    steps:
-      - IN: release-sample
-        switch: off
-        # versionName: v1.0.1
-      - IN: params-sample-prod
-      - IN: replicas-sample-prod
-      - IN: trigger-sample-prod
-      - IN: alb-demo-prod
-        applyTo:
-          - manifest: man-sample
-            image: img-sample
-            port: 80
-      - IN: env-test-ecs
-      - TASK: managed
+# # PROD deployment to Amazon ECS
+#   - name: ecs-deploy-prod-sample
+#     type: deploy
+#     steps:
+#       - IN: release-sample
+#         switch: off
+#         # versionName: v1.0.1
+#       - IN: params-sample-prod
+#       - IN: replicas-sample-prod
+#       - IN: trigger-sample-prod
+#       - IN: alb-demo-prod
+#         applyTo:
+#           - manifest: man-sample
+#             image: img-sample
+#             port: 80
+#       - IN: env-test-ecs
+#       - TASK: managed
 
 #################################
 
