@@ -11,6 +11,7 @@ jobs:
     type: manifest
     steps:
       - IN: img-sample
+        # versionName: master.79
       - IN: img-opts-sample
       - TASK: managed
 
@@ -47,7 +48,7 @@ jobs:
     steps:
       - IN: release-sample
         switch: off
-      # - IN: man-sample
+        # versionName: v1.0.1
       - IN: params-sample-prod
       - IN: replicas-sample-prod
       - IN: trigger-sample-prod
