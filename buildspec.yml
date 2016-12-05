@@ -4,7 +4,8 @@ environment_variables:
   plaintext:
     IMAGE_REPO_NAME: sample_node_ayeaye
     AMAZON_ECR_URL: 288971733297.dkr.ecr.us-east-1.amazonaws.com
-    IMAGE_TAG: latest
+    IMAGE_TAG: buildspecTest
+    AWS_DEFAULT_REGION: us-east-1
 
 phases:
   pre_build:
