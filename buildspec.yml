@@ -10,6 +10,9 @@ environment_variables:
 phases:
   pre_build:
     commands:
+      - echo Installing Docker
+      - apt-get update -y
+      - apt-get install docker
       - echo Logging in to Amazon ECR...
       - $(aws ecr get-login --region $AWS_DEFAULT_REGION)
   build:
