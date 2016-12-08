@@ -7,7 +7,7 @@ jobs:
 # add pipeline workflow
 
 # manifest gen
-
+  - name: man-sample
     type: manifest
     steps:
       - IN: img-sample
