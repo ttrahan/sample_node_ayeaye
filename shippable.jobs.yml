@@ -62,20 +62,19 @@ jobs:
 
 #################################
 
-# # manifest gen
-#   - name: man-sample-triton
-#     type: manifest
-#     steps:
-#       - IN: img-sample
-#       - IN: img-opts-sample-triton
-#       - TASK: managed
-#
-# # TEST deployment for VISUALIZER to Joyent Triton
-#   - name: test-triton-sample
-#     type: deploy
-#     steps:
-#       - IN: man-sample-triton
-#       - IN: trigger-sample-test
-#       - IN: env-test-triton
-#       - TASK: managed
-#
+# manifest gen
+  - name: man-sample-triton
+    type: manifest
+    steps:
+      - IN: img-sample
+      - IN: img-opts-sample-triton
+      - TASK: managed
+
+# TEST deployment for VISUALIZER to Joyent Triton
+  - name: test-triton-sample
+    type: deploy
+    steps:
+      - IN: man-sample-triton
+      - IN: trigger-sample-test
+      - IN: env-test-triton
+      - TASK: managed

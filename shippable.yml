@@ -13,7 +13,6 @@ env:
     # - QUAY_URL="quay.io/ttrahan" # quay.io/{account name}
     - GOOGLE_GCR_URL=gcr.io/shippable-gke # gcr.io/{project name}
 
-
 build:
   ci:
     - echo 'CI is running'
