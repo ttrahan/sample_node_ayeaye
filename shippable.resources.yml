@@ -28,6 +28,25 @@ resources:
 
 ################################
 
+  - name: service-sample                              #required
+    type: loadBalancer                          #required
+    integration: ttrahan-gke
+    pointer:
+      sourceName: "service-sample-node-ayeaye"                    #required
+      method: LoadBalancer
+      clusterName: shippable-demo
+      region: "Eastern US"
+      namespace: shippable-gke
+    version:
+      ports:
+        - name: public
+          protocol: TCP
+          port: 80
+      selector:
+        app: sample-node-ayeaye
+
+################################
+
 # TEST resources
 
 # Docker Image Options
@@ -41,7 +60,7 @@ resources:
       publishAllPorts : true
       labels:
         env: test
-        app: sample_node_ayeaye
+        app: sample-node-ayeaye
 
 # env vars for Test
   - name: params-sample-test-gke
@@ -71,6 +90,7 @@ resources:
       cpuShares: 128
       labels:
         env: prod
+        app: sample-node-ayeaye
 
 # env vars for Prod
   - name: params-sample-prod-gke
