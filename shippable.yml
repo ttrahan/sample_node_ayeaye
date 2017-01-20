@@ -25,15 +25,15 @@ integrations:
     - integrationName: ttrahan-gcr
       type: gcr
 
-# # Leave this disabled if already fired from another branch, e.g. master
-#   notifications:
-#     - integrationName: trigger-img-sample-gcr
-#       type: webhook
-#       payload:
-#         - versionName=$BRANCH.$BUILD_NUMBER
-#       branches:
-#         only:
-#           - gke
-#       on_success: always
-#       on_failure: never
-#       on_start: never
+# Leave this disabled if already fired from another branch, e.g. master
+  notifications:
+    - integrationName: trigger-img-sample-gcr
+      type: webhook
+      payload:
+        - versionName=$BRANCH.$BUILD_NUMBER
+      branches:
+        only:
+          - gke
+      on_success: always
+      on_failure: never
+      on_start: never

@@ -32,17 +32,29 @@ jobs:
       - IN: service-sample-test
       - TASK: managed
 
-# Create release for PROD
-  - name: release-sample-gke
-    type: release
+# # Create release for PROD
+#   - name: release-sample-gke
+#     type: release
+#     steps:
+#       - IN: ver-sample-gke
+#         switch: off
+#       - IN: deploy-test-sample-gke
+#         switch: off
+#       - IN: trigger-release-prod-gke
+#       - TASK:   managed
+#         bump: patch
+
+# TEST deployment to Amazon ECS
+  - name: deploy-prod-sample-gke
+    type: deploy
     steps:
-      - IN: ver-sample-gke
-        switch: off
       - IN: deploy-test-sample-gke
-        switch: off
-      - IN: trigger-release-prod-gke
-      - TASK:   managed
-        bump: patch
+      - IN: params-sample-prod-gke
+      - IN: img-opts-sample-prod-gke
+      - IN: trigger-sample-prod-gke
+      - IN: replicas-sample-prod-gke
+      - IN: env-gke
+      - TASK: managed
 
 # Create external loadBalancer entrypoint for prod service
   - name: service-prod-sample-gke
