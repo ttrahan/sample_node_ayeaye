@@ -45,9 +45,9 @@ jobs:
         bump: patch
 
 # Create external loadBalancer entrypoint for prod service
-  - name: service-test-sample-gke
+  - name: service-prod-sample-gke
     type: provision
     steps:
-      - IN: deploy-test-sample-gke
+      - IN: deploy-prod-sample-gke
       - IN: service-sample-prod
       - TASK: managed
