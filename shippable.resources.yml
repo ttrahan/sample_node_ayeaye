@@ -28,7 +28,7 @@ resources:
 
 ################################
 
-  - name: service-sample                              #required
+  - name: service-sample-test                             #required
     type: loadBalancer                          #required
     integration: ttrahan-gke
     pointer:
@@ -44,6 +44,7 @@ resources:
           port: 80
       selector:
         app: sample-node-ayeaye
+        env: test
 
 ################################
 
@@ -69,6 +70,25 @@ resources:
       params:
         ENVIRONMENT: "TEST"
         PORT: 8080
+
+# loadBalancer for test service
+  - name: service-sample-test                             #required
+    type: loadBalancer                          #required
+    integration: ttrahan-gke
+    pointer:
+      sourceName: "service-sample-node-ayeaye-test"                    #required
+      method: LoadBalancer
+      clusterName: shippable-demo
+      region: "Eastern US"
+      namespace: shippable-gke
+    version:
+      ports:
+        - name: public
+          protocol: TCP
+          port: 80
+      selector:
+        app: sample-node-ayeaye
+        env: test
 
 ################################
 
@@ -99,6 +119,25 @@ resources:
       params:
         ENVIRONMENT: "PROD"
         PORT: 80
+
+# loadBalancer for test service
+  - name: service-sample-test                             #required
+    type: loadBalancer                          #required
+    integration: ttrahan-gke
+    pointer:
+      sourceName: "service-sample-node-ayeaye-prod"                    #required
+      method: LoadBalancer
+      clusterName: shippable-demo
+      region: "Eastern US"
+      namespace: shippable-gke
+    version:
+      ports:
+        - name: public
+          protocol: TCP
+          port: 80
+      selector:
+        app: sample-node-ayeaye
+        env: prod
 
 # PROD replica controller
   - name: replicas-sample-prod-gke
