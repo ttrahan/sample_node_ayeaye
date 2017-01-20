@@ -139,7 +139,7 @@ resources:
         app: sample-node-ayeaye
         env: prod
 
-# PROD replica controller
+# PROD replicas
   - name: replicas-sample-prod-gke
     type: replicas
     version:
