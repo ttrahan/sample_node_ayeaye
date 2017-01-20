@@ -121,7 +121,7 @@ resources:
         PORT: 80
 
 # loadBalancer for test service
-  - name: service-sample-test                             #required
+  - name: service-sample-prod                             #required
     type: loadBalancer                          #required
     integration: ttrahan-gke
     pointer:
