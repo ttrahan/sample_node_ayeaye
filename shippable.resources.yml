@@ -11,7 +11,7 @@ resources:
     type: cluster
     integration: ttrahan-gke
     pointer:
-      sourceName : "demo-shippable-gke"
+      sourceName : "shippable-demo"
       region: "us-east1-b"
 
 ################################
