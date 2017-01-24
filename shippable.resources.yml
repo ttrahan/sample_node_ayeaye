@@ -12,7 +12,7 @@ resources:
     integration: ttrahan-gke
     pointer:
       sourceName : "shippable-demo"
-      region: "us-east1-b"
+      region: us-east1-b
       namespace: "shippable-gke"
 
 ################################
@@ -58,7 +58,7 @@ resources:
       memory: 64
       cpuShares: 128
       portMappings:
-        - 8080:8080
+        - 80:80
       publishAllPorts : true
       labels:
         env: test
@@ -70,17 +70,17 @@ resources:
     version:
       params:
         ENVIRONMENT: "TEST"
-        PORT: 8080
+        PORT: 80
 
 # loadBalancer for test service
   - name: service-sample-test                             #required
-    type: loadBalancer                          #required
+    type: loadBalancer
     integration: ttrahan-gke
     pointer:
-      sourceName: "service-sample-node-ayeaye-test"                    #required
+      sourceName: service-sample-node-ayeaye-test
       method: LoadBalancer
       clusterName: shippable-demo
-      region: "Eastern US"
+      region: us-east1-b
       namespace: shippable-gke
     version:
       ports:
@@ -126,10 +126,10 @@ resources:
     type: loadBalancer                          #required
     integration: ttrahan-gke
     pointer:
-      sourceName: "service-sample-node-ayeaye-prod"                    #required
+      sourceName: service-sample-node-ayeaye-prod #required
       method: LoadBalancer
       clusterName: shippable-demo
-      region: "Eastern US"
+      region: us-east1-b
       namespace: shippable-gke
     version:
       ports:
