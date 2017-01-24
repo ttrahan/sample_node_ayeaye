@@ -21,14 +21,13 @@ jobs:
       - IN: man-sample-gke
       - IN: params-sample-test-gke
       - IN: trigger-sample-test-gke
-      - IN: env-gke
+      - IN: cluster-gke
       - TASK: managed
 
 # Create external loadBalancer entrypoint for test service
   - name: service-test-sample-gke
     type: provision
     steps:
-      - IN: deploy-test-sample-gke
       - IN: service-sample-test
       - TASK: managed
 
@@ -53,13 +52,12 @@ jobs:
       - IN: img-opts-sample-prod-gke
       - IN: trigger-sample-prod-gke
       - IN: replicas-sample-prod-gke
-      - IN: env-gke
+      - IN: cluster-gke
       - TASK: managed
 
 # Create external loadBalancer entrypoint for prod service
   - name: service-prod-sample-gke
     type: provision
     steps:
-      - IN: deploy-prod-sample-gke
       - IN: service-sample-prod
       - TASK: managed
