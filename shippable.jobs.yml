@@ -48,6 +48,7 @@ jobs:
     type: deploy
     steps:
       - IN: deploy-test-sample-gke
+        switch: off
       - IN: params-sample-prod-gke
       - IN: img-opts-sample-prod-gke
       - IN: trigger-sample-prod-gke
