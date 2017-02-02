@@ -7,7 +7,7 @@ branches:
 
 env:
   global:
-    - REPO=sample_node_ayeaye
+    - REPO=sample-node-ayeaye
     - GOOGLE_GCR_URL=gcr.io/shippable-gke # gcr.io/{project name}
 
 build:
