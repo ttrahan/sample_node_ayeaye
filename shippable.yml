@@ -62,8 +62,10 @@ integrations:
     - integrationName: trigger-project-kube-example
       type: webhook
       payload:
-        - branchName=runshDeploy
-        - message=Shippable Run $BUILD_NUMBER ($BUILD_URL) succeeded for $COMPARE_URL
+        branchName: runshDeploy
+        globalEnv:
+          - FOO=BAR
+          - FIZZ=buzz
       branches:
         only:
           - master
