@@ -63,9 +63,6 @@ integrations:
       type: webhook
       payload:
         branchName: runshDeploy
-        globalEnv:
-          - FOO=BAR
-          - FIZZ=buzz
       branches:
         only:
           - master
