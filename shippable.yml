@@ -59,6 +59,17 @@ integrations:
       on_success: always
       on_failure: never
       on_start: never
+    - integrationName: trigger-project-kube-example
+      type: webhook
+      payload:
+        - branchName=runshDeploy
+        - message=Shippable Run $BUILD_NUMBER ($BUILD_URL) succeeded for $COMPARE_URL
+      branches:
+        only:
+          - master
+      on_success: always
+      on_failure: never
+      on_start: never
     # - integrationName: trigger-img-sample-gcr
     #   type: webhook
     #   payload:
