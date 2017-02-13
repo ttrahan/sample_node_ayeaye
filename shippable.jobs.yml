@@ -29,6 +29,7 @@ jobs:
     type: provision
     steps:
       - IN: service-sample-test
+      - IN: deploy-test-sample-gke
       - TASK: managed
 
 # # Create release for PROD
@@ -60,5 +61,6 @@ jobs:
   - name: service-prod-sample-gke
     type: provision
     steps:
+      - IN: deploy-prod-sample-gke
       - IN: service-sample-prod
       - TASK: managed
