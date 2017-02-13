@@ -20,8 +20,8 @@ jobs:
     type: deploy
     steps:
       - IN: man-sample
-      - IN: params-sample-test
       - IN: env-test-ecs
+      - IN: params-sample-test
       - IN: trigger-sample-test
       - IN: alb-demo-test
         applyTo:
