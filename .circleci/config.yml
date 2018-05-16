@@ -26,9 +26,8 @@ jobs:
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
 
-      - run: 
-        - echo 'CI is running'
-        - docker build -t ttrahan/$REPO:$BRANCH.$BUILD_NUMBER .
+      - run: echo 'CI is running'
+      - run: docker build -t ttrahan/$REPO:$BRANCH.$BUILD_NUMBER .
 
       - save_cache:
           paths:
